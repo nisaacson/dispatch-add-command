@@ -1,6 +1,6 @@
 {
   "name": "dispatch-add-command",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add new spawn commands to the dispatcher database",
   "main": "index.js",
   "directories": {
