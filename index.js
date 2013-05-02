@@ -15,7 +15,6 @@ module.exports = function (data, cb) {
 
   var repo = data.repo
   var command = data.command
-  var drone = data.drone || ''
   var instances = data.instances
   var db = data.db
   var id = getSpawnCommandID(data)
@@ -38,9 +37,11 @@ module.exports = function (data, cb) {
     var record = {
       repo: repo,
       command: command,
-      drone: drone,
       instances: instances,
       resource: 'SpawnCommand'
+    }
+    if (data.drone) {
+      record.drone = data.drone
     }
     db.save(id, record, function (err, reply) {
       if (err) {
@@ -50,7 +51,9 @@ module.exports = function (data, cb) {
           stack: new Error().stack
         })
       }
-      cb()
+      record._id = id
+      record._rev = reply._rev
+      cb(null, record)
     })
   })
 }

@@ -56,14 +56,18 @@ describe('Wiring', function () {
       },
       save: function (id, doc, cb) {
         cb(null, {
-          rev: rev
+          _rev: rev,
+          _id: id,
+          json: {
+            foo: 'bar'
+          }
         })
       }
     }
     data.db = db
     addCommand(data, function (err, reply) {
       should.not.exist(err, 'error adding command: ' + JSON.stringify(err, null, ' '))
-      inspect(reply, 'add reply')
+      reply._rev.should.eql(rev)
       done()
     })
   })
