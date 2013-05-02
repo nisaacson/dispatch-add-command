@@ -1,0 +1,32 @@
+{
+  "name": "dispatch-add-command",
+  "version": "1.0.0",
+  "description": "Add new spawn commands to the dispatcher database",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "''"
+  },
+  "keywords": [
+    "dispatch",
+    "fleet",
+    "spawn",
+    "couchdb"
+  ],
+  "author": "Noah Isaacson",
+  "license": "BSD",
+  "devDependencies": {
+    "eyespect": "~0.1.8",
+    "should": "~1.2.2",
+    "mocha": "~1.9.0"
+  },
+  "dependencies": {
+    "required-keys": "~1.0.5"
+  }
+}
